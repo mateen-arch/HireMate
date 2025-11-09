@@ -17,19 +17,24 @@ const PostJob = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetchCompanies();
+    // Use a hard-coded list of companies and their associated categories.
+    // This allows the company dropdown to be available even without a backend
+    // and enables filtering/merging with the selected category.
+    const hardcoded = [
+      { id: 'devsync', companyName: 'Dev Sync', categories: ['Technology', 'Engineering'] },
+      { id: 'contour', companyName: 'Contour Software', categories: ['Technology'] },
+      { id: 'devsol', companyName: 'DevSol', categories: ['Technology', 'Engineering'] },
+      { id: 'amazon', companyName: 'Amazon', categories: ['Technology', 'Sales'] },
+      { id: 'google', companyName: 'Google', categories: ['Technology'] },
+      { id: 'netflix', companyName: 'Netflix', categories: ['Technology', 'Marketing'] },
+      { id: 'finCorp', companyName: 'FinCorp', categories: ['Finance'] },
+      { id: 'healthplus', companyName: 'HealthPlus', categories: ['Healthcare'] },
+      { id: 'marketpros', companyName: 'MarketPros', categories: ['Marketing', 'Sales'] },
+    ];
+
+    setCompanies(hardcoded);
   }, []);
 
-  const fetchCompanies = async () => {
-    try {
-      const response = await api.get('/company');
-      if (response.data.success) {
-        setCompanies(response.data.companies);
-      }
-    } catch (error) {
-      console.error('Failed to fetch companies');
-    }
-  };
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -164,11 +169,16 @@ const PostJob = () => {
                   onChange={handleChange}
                 >
                   <option value="">Select a company</option>
-                  {companies.map((company) => (
-                    <option key={company._id || company.id} value={company._id || company.id}>
-                      {company.companyName}
-                    </option>
-                  ))}
+                  {/* Filter companies to those matching the selected category (if any) */}
+                  {companies
+                    .filter((company) =>
+                      !formData.category || (company.categories && company.categories.includes(formData.category))
+                    )
+                    .map((company) => (
+                      <option key={company.id} value={company.id}>
+                        {company.companyName}
+                      </option>
+                    ))}
                 </select>
               </div>
 
