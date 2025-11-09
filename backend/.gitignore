@@ -1,0 +1,12 @@
+# Environment variables
+.env
+
+# Data files (JSON storage)
+data/
+
+# Dependencies
+node_modules/
+
+# Logs
+*.log
+

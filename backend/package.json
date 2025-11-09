@@ -1,0 +1,31 @@
+{
+  "name": "hiremate-backend",
+  "version": "1.0.0",
+  "description": "HireMate Backend - AI-Powered Job Recruitment and Interview Platform",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "job-portal",
+    "recruitment",
+    "ai-interview"
+  ],
+  "author": "HireMate Team",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
+
