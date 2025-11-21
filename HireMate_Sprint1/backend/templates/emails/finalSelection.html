@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ready for Human Interview</title>
+    <style>
+      body { font-family: 'Segoe UI', Arial, sans-serif; background: #ecfccb; padding: 24px; color: #14532d; }
+      .card { max-width: 560px; margin: auto; background: #ffffff; border-radius: 20px; padding: 32px; border: 1px solid #bbf7d0; }
+      .cta { display: inline-block; margin-top: 20px; padding: 12px 24px; border-radius: 999px; background: #16a34a; color: #ffffff; text-decoration: none; font-weight: 600; }
+      .footer { margin-top: 32px; font-size: 12px; color: #065f46; text-align: center; }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h2>Congratulations {{CANDIDATE_NAME}}! 🎉</h2>
+      <p>Your combined score for <strong>{{JOB_TITLE}}</strong> is <strong>{{FINAL_SCORE}}%</strong>.</p>
+      <p>{{MESSAGE}}</p>
+      <a class="cta" href="{{CTA_URL}}">{{CTA_TEXT}}</a>
+      <div class="footer">
+        <p>HireMate · Talent Pipeline · © {{YEAR}}</p>
+      </div>
+    </div>
+  </body>
+</html>
+
+
+
